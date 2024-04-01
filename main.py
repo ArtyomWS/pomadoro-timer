@@ -40,7 +40,11 @@ def count_down(count):
     if  count > 0:
         window.after(1000, count_down, count - 1)
     else:
-       start_timer()
+        start_timer()
+        mark = ""
+        for _ in range(math.floor(reps/2)):
+            mark += "✓"
+        check.config(text=mark)
 
 window = Tk()
 window.title("Pomodoro")
@@ -61,7 +65,7 @@ start_button.grid(column=0, row=2)
 reset_button = Button(text="Reset", highlightthickness=0)
 reset_button.grid(column=2, row=2)
 
-check = Label(text="✓", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 25))
+check = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 25))
 check.grid(column=1, row=3)
 
 window.mainloop()
